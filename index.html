@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Music</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#000;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+#hint{position:fixed;bottom:24px;color:#fff;font:16px system-ui;opacity:.7}
+</style>
+</head>
+<body>
+<audio id="music" autoplay preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<div id="hint">若瀏覽器阻擋自動播放，點一下畫面即可播放</div>
+<script>
+const audio=document.getElementById('music');
+function start(){ audio.play().catch(()=>{}); }
+start();
+document.addEventListener('click', start, {once:true});
+document.addEventListener('touchstart', start, {once:true});
+</script>
+</body>
+</html>
